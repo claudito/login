@@ -3,17 +3,13 @@
 
 $session = new Session();
 
-if ($session->existe()=='existe') 
+if (!$session->existe()=='existe') 
 {
  
-echo "";
+header('Location: '.PATH.'');
     
+}
 
-}
-else
-{
-	header('Location: '.PATH.'');
-}
 
 
 ?>

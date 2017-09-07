@@ -1,0 +1,55 @@
+<?php 
+
+include'../../autoload.php';
+include'../../session.php';
+
+$message     =  new Message();
+$funciones   =  new Funciones();
+
+if ($_FILES['archivo']['size']<=MAX_FILE_SIZE) 
+{
+
+
+if ($funciones->tipo_archivo($_FILES['archivo']['type'])=='ok') 
+{
+
+$extension = $funciones->tipo_extension($_FILES['archivo']['type']);
+	
+$archivo            = $_POST['nombre'].'.'.$extension;
+$archivo_temporal  	= $_FILES['archivo']['tmp_name'];
+$destino           	= "../../upload/articulo_file/".$archivo;
+if (move_uploaded_file($archivo_temporal,$destino)) 
+{
+
+$nombre      	=  $funciones->validar_xss($_POST['nombre']);
+$ruta 			=  $funciones->validar_xss($archivo);
+$id_articulo 	=  $funciones->validar_xss($_POST['id']);
+
+$objeto 		= new Articulo_file($nombre,$ruta,$id_articulo);
+$valor 			= $objeto->agregar();
+echo $valor;
+} 
+else
+{
+echo "error al subir el archivo";
+}
+
+
+
+} 
+else 
+{
+  echo "Archivo no permitido";
+}
+
+
+} 
+else
+{
+  echo "archivo pesado";
+}
+
+
+
+
+ ?>

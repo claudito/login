@@ -20,9 +20,9 @@ public function login()
    try {
     $modelo    = new Conexion();
     $conexion  = $modelo->get_conexion();
-    $query     = "SELECT * FROM login WHERE correo=:correo AND pass=:pass";
+    $query     = "SELECT * FROM usuario WHERE user=:user AND pass=:pass";
     $statement = $conexion->prepare($query);
-    $statement->bindParam(':correo',$this->user);
+    $statement->bindParam(':user',$this->user);
     $statement->bindParam(':pass',$this->pass);
     $statement->execute();
     $result   = $statement->fetchall();
@@ -33,8 +33,10 @@ public function login()
      session_start();
      $statement->execute();
      $dato   = $statement->fetch();
-     $_SESSION[KEY.ID]     = $dato['id'];
-     $_SESSION[KEY.CORREO] = $dato['correo'];
+     $_SESSION[KEY.ID]        = $dato['id'];
+     $_SESSION[KEY.NOMBRES]   = $dato['nombres'];
+     $_SESSION[KEY.APELLIDOS] = $dato['apellidos'];
+     $_SESSION[KEY.TIPO]      = $dato['tipo'];
      return "true";
     } 
     else 
@@ -65,8 +67,11 @@ function  logout()
   else
   { 
 
-     unset($_SESSION[KEY.ID]);
-     unset($_SESSION[KEY.CORREO]);
+     unset($_SESSION[KEY.ID]);        
+     unset($_SESSION[KEY.NOMBRES]);  
+     unset($_SESSION[KEY.APELLIDOS]);   
+     unset($_SESSION[KEY.TIPO]);
+         
      header('Location: '.PATH.'');
   }
  

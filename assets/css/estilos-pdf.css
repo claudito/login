@@ -1,0 +1,73 @@
+/* Curso CSS estilos*/
+html{
+
+margin:0; 
+padding:0; 
+height:100%; 
+width: 100%;
+font-family: 'Arial Narrow','Arial','Helvetica','sans-serif';
+
+}
+
+body
+ {
+   font-family: Arial, Helvetica, sans-serif;
+    margin: 4mm 2mm 3mm 3mm; 
+   /*       top down izq der */
+
+ }
+.table-detalle
+{
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size:9px;   
+margin: -3px;  
+width: 760px; 
+text-align: right;  
+border-collapse: collapse; 
+padding-top: 2em;
+
+}
+.table-cabecera
+{
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size:10px;   
+width:100%; 
+text-align: right;  
+border-collapse: collapse; 
+
+}
+
+
+.td_th_cab
+ {
+   text-align: left;
+   vertical-align: top;
+   border-collapse: collapse;
+   padding: 0.1em;
+   caption-side: bottom;
+   font-size:12px;   
+   padding-right: 5px;
+}
+
+
+
+.td_th_det
+ {
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+
+.th_det {
+   background: #E6CECE;
+}
+
+#piedepagina{
+width:800px; 
+position: absolute;
+bottom: 0 !important;
+bottom: 15px;
+}

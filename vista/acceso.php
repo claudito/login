@@ -14,12 +14,12 @@ $assets ->sweetalert();
 <div class="col-md-4">
 <br><br>
 <center>
-<img src="http://www.freeiconspng.com/uploads/user-login-icon-29.png" width="200" alt="Login" class="img-responsive" >
+<img src="<?php echo PATH ?>assets/img/logo-pdf.jpg"  alt="login" class="img-responsive" >
 </center>
 <br>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title text-center">Login</h3>
+    <h3 class="panel-title text-center">Compras</h3>
   </div>
   <div class="panel-body">
 
@@ -29,7 +29,14 @@ $assets ->sweetalert();
 
   <div class="form-group">
   <label>Correo</label>
-  <input type="email"  placeholder="Correo" class="form-control" name="correo"  id="correo"  autofocus="" />
+  <select name="correo" id="correo" class="form-control" required="">
+  <option value="">[Seleccionar]</option>
+  <?php 
+  $usuario  =  new Usuario();
+  foreach ($usuario->lista() as $key => $value): ?>
+  <option value="<?php echo $value['correo']; ?>"><?php echo $value['nombres'].' '.$value['apellidos']; ?></option>
+  <?php endforeach ?>
+  </select>
   </div>
 
   <div class="form-group">

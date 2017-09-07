@@ -32,7 +32,9 @@ echo '
 <style>
 body{
 font-family: "Montserrat", sans-serif;
+font-size:12px;
 }
+
 </style>
 <script>
 

@@ -6,7 +6,7 @@ $assets ->principal('Bienvenidos');
 $assets ->sweetalert();
 $html->header();
 
-echo  (isset($_GET['ok'])) ? $message->bienvenido($_SESSION[KEY.CORREO]) : "" ;
+echo  (isset($_GET['ok'])) ? $message->mensaje("Bienvenido","success",$_SESSION[KEY.NOMBRES],2) : "" ;
 
  ?>
 
@@ -19,9 +19,14 @@ echo  (isset($_GET['ok'])) ? $message->bienvenido($_SESSION[KEY.CORREO]) : "" ;
 
 <div class="row">
 <div class="col-md-12">
-<div class="alert alert-success">
-	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	 Bienvenido: <?php echo $_SESSION[KEY.CORREO]; ?>
+<div class="jumbotron">
+	<div class="container">
+		<h1>Haro Ingenieros</h1>
+		<p>Aplicación de Compras</p>
+		<p>
+			<a class="btn btn-primary btn-lg">Mas información...</a>
+		</p>
+	</div>
 </div>
 </div>
 </div>

@@ -10,15 +10,15 @@ function __construct()
 }
 
 
-function bienvenido($usuario)
+function mensaje($titulo,$tipo,$texto,$tiempo)
 {
 
 return  '<script>
 		swal({
-		title: "Bienvenido",
-		type:"success",
-		text: "'.trim($usuario).'",
-		timer: 3000,
+		title: "'.$titulo.'",
+		type:"'.$tipo.'",
+		text: "'.$texto.'",
+		timer: '.$tiempo.'000,
 		showConfirmButton: false
 		});
         </script>';
